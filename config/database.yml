@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: grammable_development
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: grammable_test
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: grammable_production
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost
