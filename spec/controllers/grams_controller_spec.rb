@@ -27,7 +27,7 @@ RSpec.describe GramsController, type: :controller do
 
     it "should properly deal with validation errors" do
       post :create, gram: {message: ''}
-      expect(resonse).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_entity)
       expect(Gram.count).to eq 0
     end
 
