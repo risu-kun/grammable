@@ -68,6 +68,15 @@ RSpec.describe GramsController, type: :controller do
   end
 
   describe "gram#edit" do
+    it "should not let a user who did not create the gram edit it" do
+      gram = FactoryGirl.create(:gram)
+      user = FactoryGirl.create(:user)
+      sign_in user
+
+      get :edit, id: gram.id
+      expect(response).to have_http_status(:forbidden)
+    end
+
     it "should not let unauthenticated users edit a gram" do
       gram = FactoryGirl.create(:gram)
       get :edit, id: gram.id
@@ -90,6 +99,15 @@ RSpec.describe GramsController, type: :controller do
   end
 
   describe "gram#update" do
+    it "should not let a user who did not create the gram update it" do
+      gram = FactoryGirl.create(:gram)
+      user = FactoryGirl.create(:user)
+      sign_in user
+
+      patch :update, id: gram.id, gram: { message: 'Edited by someone else'}
+      expect(response).to have_http_status(:forbidden)
+    end
+
     it "should not let unauthenticated users create a gram" do
       gram = FactoryGirl.create(:gram)
       patch :update, id: gram.id, gram: { message: "Hello" }
@@ -130,6 +148,15 @@ RSpec.describe GramsController, type: :controller do
   end
 
   describe "grams#destroy" do
+    it "should not let a user who did not create the gram update it" do
+      gram = FactoryGirl.create(:gram)
+      user = FactoryGirl.create(:user)
+      sign_in user
+
+      delete :destroy, id: gram.id
+      expect(response).to have_http_status(:forbidden)
+    end
+
     it "should not allow an unauthenticated user to destroy a gram" do
       gram = FactoryGirl.create(:gram)
       delete :destroy, id: gram.id
