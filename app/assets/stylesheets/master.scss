@@ -1,0 +1,28 @@
+body {
+  background-color: #fafafa;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+.brand {
+  color: #125688;
+  font-family: 'Pacifico', cursive;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.top-nav {
+  background-color: white;
+  border-bottom: 1px solid #edeeee;
+  height: 75px;
+  padding-top: 26px;
+
+  .add a {
+    color: #125688;
+    font-size: 14px;
+    font-weight: 200;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
