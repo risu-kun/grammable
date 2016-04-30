@@ -1,3 +1,13 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#comment_message').keypress(function (e) {
+      if (e.which == 13) {
+        $('#new_comment').submit();
+        return false;
+      }
+    })
+  });
+</script>
 
 <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
   <% @grams.each do |gram| %>
@@ -22,11 +32,12 @@
             <%= comment.message %>
           </div>
         <% end %>
-        <h4>Add a comment</h4>
-        <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
-          <%= f.input :message %>
-          <%= f.submit 'Add Comment', class: 'my-btn' %>
-        <% end %>        
+        <div class="comment-input">
+          <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
+            <%= f.input :message, as: :string, placeholder: 'Add a comment...', label: false %>
+            <%= f.submit 'Add', class: 'hidden' %>
+          <% end %>
+        </div>
       </div>
 
       <div class="gram-actions pull-right">
