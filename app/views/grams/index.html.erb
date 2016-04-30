@@ -4,27 +4,21 @@
     <div class="card">
       <div class="handle"><%= gram.user.email %></div>
       <%= image_tag gram.picture, class: 'img-responsive' %>
-      <p>
-        <%= gram.message %>
-      </p>
-
-      <div class="gram-actions pull-right">
-        <% if current_user && current_user == gram.user %>
-          <%= link_to 'Edit', edit_gram_path(gram) %>
-          <%= link_to 'Delete', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'} %>
-        <% end %>
-      </div>
 
       <br class="clear-fix" />
 
       <div class="comments">
-        <h3>Comments</h3>
+        <% if gram.message? %>
+          <span class="comment_handle">
+            <%= gram.user.email %>
+          </span>
+          <%= gram.message %>
+        <% end %>
         <% gram.comments.each do |comment| %>
           <div class="comment">
             <span class="comment_handle">
               <%= comment.user.email %>
             </span>
-            
             <%= comment.message %>
           </div>
         <% end %>
@@ -32,8 +26,16 @@
         <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
           <%= f.input :message %>
           <%= f.submit 'Add Comment', class: 'my-btn' %>
+        <% end %>        
+      </div>
+
+      <div class="gram-actions pull-right">
+        <% if current_user && current_user == gram.user %>
+          <%= link_to 'Edit', edit_gram_path(gram) %>
+          <%= link_to 'Delete', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'} %>
         <% end %>
       </div>
+      <br class="clear-fix" />
     </div>
   <% end %>
 </div>

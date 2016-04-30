@@ -10,13 +10,14 @@
 body {
   background-color: #fafafa;
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
   font-weight: 300;
 }
 
 .brand {
   color: #125688;
   font-family: 'Pacifico', cursive;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -44,14 +45,12 @@ body {
 }
 
 .comment {
-  font-size: 16px;
+  font-size: 14px;
   margin-top:5px;
 }
 
 .comment_handle {
   color: #125688;
-  font-weight: bold;
-  font-size: 18px;
 }
 
 .gram-actions a {
@@ -64,7 +63,6 @@ body {
   margin: 10px;
   color: #125688;
   font-weight: bold;
-  font-size: 18px;
 }
 
 .input.boolean {
