@@ -13,3 +13,5 @@
 /tmp
 
 public/uploads/gram/picture/
+# Ignore application configuration
+/config/application.yml
