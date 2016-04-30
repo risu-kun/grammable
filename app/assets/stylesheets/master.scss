@@ -14,11 +14,15 @@ body {
   font-weight: 300;
 }
 
-.brand {
+.brand a{
   color: #125688;
   font-family: 'Pacifico', cursive;
   font-size: 24px;
   font-weight: 500;
+  &:hover, &:focus {
+    text-decoration: none;
+
+  }
 }
 
 .card {
