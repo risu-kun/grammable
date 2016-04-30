@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @gram.nil?
       render_unsuccessful
     else
-      @comment = @gram.comments.create(comment_params)
+      @comment = @gram.comments.create(comment_params.merge(user: current_user))
       if @comment.valid?
       redirect_to root_path
       else
