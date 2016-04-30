@@ -56,7 +56,7 @@ body {
 .comment-input {
   border-top: 1px solid #e8e8e8;
   margin-top: 7px;
-  
+
   input, input:focus {
     border: 0px;
     box-shadow: none;
@@ -71,10 +71,11 @@ body {
 }
 
 .handle {
-  margin: 10px;
   color: #125688;
   font-weight: bold;
   height: 64px;
+  line-height: 64px;
+  margin: 10px;
 }
 
 .input.boolean {
