@@ -10,7 +10,7 @@
 </script>
 
 <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-  <% @grams.each do |gram| %>
+  <% @grams.reverse.each do |gram| %>
     <div class="card">
       <div class="handle"><%= gram.user.email %></div>
       <%= image_tag gram.picture, class: 'img-responsive' %>
